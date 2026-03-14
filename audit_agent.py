@@ -10,7 +10,6 @@ from langchain_core.runnables import RunnablePassthrough, RunnableParallel
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 from langchain_huggingface import HuggingFaceEmbeddings
-embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 parser = StrOutputParser()
 
 prompt_template = PromptTemplate(
@@ -38,9 +37,11 @@ Product: {query}""",
 
 
 def audit_agent(query:str) -> str:
+    embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+
     vector_db = FAISS.load_local(
         "my_faiss_index", 
-        embeddings_model, 
+        embeddings_model,
         allow_dangerous_deserialization=True 
     )
 

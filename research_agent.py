@@ -11,9 +11,6 @@ tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
 from langchain_community.vectorstores import faiss
 
 from langchain_huggingface import HuggingFaceEmbeddings
-
-embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
 from langchain_community.vectorstores import FAISS
 
 
@@ -29,6 +26,7 @@ def search_tool(query: str ) -> str:
     
 
 def research_agent(query: str) -> str:
+    embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     research_data = search_tool.invoke({"query": query})
 
 
