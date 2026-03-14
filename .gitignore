@@ -3,4 +3,8 @@ venv/
 __pycache__/
 *.pyc
 my_faiss_index/
-*.txt
+audit_report.txt
+validator_report.txt
+comparison_report.txt
+action_agent_output.txt
+action_validator_report.txt
