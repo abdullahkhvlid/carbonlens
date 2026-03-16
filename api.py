@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from main import main
 import os
@@ -16,12 +18,11 @@ app.add_middleware(
 class ProductRequest(BaseModel):
     product: str
 
+@app.get("/")
+def root():
+    return FileResponse("index.html")
+
 @app.post("/analyze")
 async def analyze(request: ProductRequest):
     result = main(request.product)
     return result
-
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
