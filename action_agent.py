@@ -52,10 +52,11 @@ Raw Data:
 parser = StrOutputParser()
 
 def action_agent(query: str) -> str:
+    search_query = f"{query} company carbon neutrality sustainability initiatives 2030"
     chain = RunnableLambda(fetch_company_actions) | prompt | model | parser 
 
 
-    result = chain.invoke(query)
+    result = chain.invoke(search_query)
 
 
     with open ("action_agent_output.txt", "w") as f:
