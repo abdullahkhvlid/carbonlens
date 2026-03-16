@@ -1,10 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from main import main
-import os
 
 app = FastAPI()
 
@@ -18,9 +16,10 @@ app.add_middleware(
 class ProductRequest(BaseModel):
     product: str
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def root():
-    return FileResponse("index.html")
+    with open("index.html", "r") as f:
+        return f.read()
 
 @app.post("/analyze")
 async def analyze(request: ProductRequest):
