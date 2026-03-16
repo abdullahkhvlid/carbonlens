@@ -5,10 +5,10 @@ langchain
 langchain-core
 langchain-community
 langchain-google-genai
-langchain-huggingface
+# langchain-huggingface
 langchain-classic
 faiss-cpu
-sentence-transformers
+# sentence-transformers
 tavily-python
 pydantic
 google-generativeai
