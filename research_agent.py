@@ -8,7 +8,6 @@ from langchain_community.tools import tool
 from tavily import TavilyClient
 tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
 
-from langchain_community.vectorstores import faiss
 
 # from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -28,7 +27,7 @@ def search_tool(query: str ) -> str:
 
 def research_agent(query: str) -> str:
     # embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
     research_data = search_tool.invoke({"query": query})
 
 

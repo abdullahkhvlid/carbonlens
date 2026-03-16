@@ -39,7 +39,7 @@ Product: {query}""",
 
 def audit_agent(query:str) -> str:
     # embeddings_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings_model = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
 
     vector_db = FAISS.load_local(
         "my_faiss_index", 
