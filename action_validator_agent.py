@@ -6,7 +6,7 @@ import os
 from langchain_community.tools import tool
 from langchain_classic.agents import create_react_agent, AgentExecutor
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", streaming=False)
+model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite-preview", streaming=False)
 
 
 from tavily import TavilyClient
