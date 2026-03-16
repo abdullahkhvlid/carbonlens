@@ -5,7 +5,7 @@ import os
 load_dotenv()
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda
-model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 
 from tavily import TavilyClient
